@@ -9,7 +9,7 @@ class CommentController extends Controller
 {
     public function send(Request $request){
         //vaidate request
-        $validatedData = $request=>validate([
+        $validatedData = $request->validate([
             'name' => ['required', 'string', 'max:50'],
             'comment' => ['required', 'string', 'max:500'],
         ]);
@@ -21,7 +21,7 @@ class CommentController extends Controller
         // Save
         $comment = new Comment();
         $comment->name = $validatedData['name'];
-        $comment-> =$validatedData['comment'];
+        $comment->comment = $validatedData['comment'];
         $comment->save();
 
         return back();
